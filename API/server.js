@@ -15,12 +15,25 @@ app.use( body_parser.json() )
 app.use( body_parser.urlencoded({extended: false}) )
 app.use('/', express.static('public'))
 
+app.use((req, res, next) => {
+    req.io = io;
+    next();
+  });
 
 routes( app )
 
 io.on('connection', function(socket){
     console.log('Nuevo cliente conectado.')
 })
+
+/*
+let contador = 1
+
+setInterval(function(){
+    io.emit(`mensaje`, `Hola, saludos a todos --> ${contador}`)
+    contador++
+}, 3000)
+*/
 
 
 

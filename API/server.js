@@ -26,17 +26,6 @@ io.on('connection', function(socket){
     console.log('Nuevo cliente conectado.')
 })
 
-/*
-let contador = 1
-
-setInterval(function(){
-    io.emit(`mensaje`, `Hola, saludos a todos --> ${contador}`)
-    contador++
-}, 3000)
-*/
-
-
-
 server.listen( config.PORT, () => {
 console.log(`La aplicacion se encuentra arriba en http://localhost:${config.PORT}/`);
 });
